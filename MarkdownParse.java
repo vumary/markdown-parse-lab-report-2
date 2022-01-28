@@ -17,6 +17,12 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+            // if there is no open bracket from the current index
+            // update currentIndex so that it's greater than markdown.length()
+            // in order to escape the while loop
+            if (markdown.indexOf("[", currentIndex) == -1) {
+                currentIndex = markdown.length() + 1;
+            }
         }
         return toReturn;
     }
