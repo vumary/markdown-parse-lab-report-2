@@ -26,7 +26,7 @@ public class MarkdownParse {
             // if there is no open bracket from the current index
             // update currentIndex so that it's greater than markdown.length()
             // in order to escape the while loop
-            if (markdown.indexOf("[", currentIndex) == -1) {
+            if (markdown.indexOf("[", currentIndex) == -1 || markdown.length() < 4) {
                 currentIndex = markdown.length() + 1;
             }
         }
