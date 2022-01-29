@@ -15,8 +15,14 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
+            // check if there even is an openParen and closeParen before
+            // creating a substring. Also check closeParen is before openParen
+            if (openParen != -1 && closeParen > openParen && closeParen != -1) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                currentIndex = closeParen + 1;
+            } else {
+                currentIndex = nextCloseBracket + 1;
+            }
             // if there is no open bracket from the current index
             // update currentIndex so that it's greater than markdown.length()
             // in order to escape the while loop
