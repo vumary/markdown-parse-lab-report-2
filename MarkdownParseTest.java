@@ -17,7 +17,8 @@ public class MarkdownParseTest {
         String contents= Files.readString(Path.of("test-file.md"));
         List<String> expect = List.of("https://something.com", "some-page.html");
         assertEquals(MarkdownParse.getLinks(contents), expect);
-        assertEquals(2, 1 + 1);
+        // break test
+        assertEquals(3, 1 + 1);
     }
     
 }
