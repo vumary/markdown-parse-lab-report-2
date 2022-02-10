@@ -6,3 +6,7 @@ MarkdownParseTest.class: MarkdownParseTest.java MarkdownParse.class
 
 MarkdownParse.class: MarkdownParse.java
 	javac MarkdownParse.java
+
+clean:
+	rm -f MarkdownParse.class
+	rm -f MarkdownParseTest.class
